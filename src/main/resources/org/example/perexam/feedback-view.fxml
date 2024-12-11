@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.perexam.controller.FeedBackController"
+            prefHeight="400.0" prefWidth="600.0">
+    <top>
+        <TextField fx:id="nameField" promptText="Enter Customer Name: "/>
+    </top>
+    <center>
+        <HBox spacing="10">
+            <Label text="Feedback"/>
+            <TextArea fx:id="feedbackArea"/>
+        </HBox>
+    </center>
+    <bottom>
+        <HBox>
+            <Button fx:id="submitbutton" text="Submit Feedback"/>
+            <TextArea fx:id="outputArea" editable="false" wrapText="true"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>

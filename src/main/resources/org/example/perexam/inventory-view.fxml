@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.perexam.controller.InventoryController"
+            prefHeight="400.0" prefWidth="600.0">
+
+    <HBox spacing="10" >
+        <Label text="Product ID"/>
+        <TextField fx:id="productId" promptText="Enter Product Id"/>
+        <Label text="Product Name"/>
+        <TextField fx:id="productName" promptText="Enter Product name"/>
+        <Label text="Stock"/>
+        <TextField fx:id="stockField" promptText="Enter Stock"/>
+        <Button text="Create/Update Stock" onAction="#handleAddOrUpdate"/>
+
+    </HBox>
+
+    <TableView fx:id="productTable" VBox.vgrow="ALWAYS" >
+        <columns>
+            <TableColumn fx:id="idColumn" text="Product ID" />
+            <TableColumn fx:id="nameColumn" text="Product Name" />
+            <TableColumn fx:id="stockColumn" text="Stock"/>
+        </columns>
+
+    </TableView>
+
+    <HBox spacing="10" >
+        <Label text="Search Product: "/>
+        <TextField fx:id="searchField" promptText="Enter Product Name"/>
+        <Button text="Search" onAction="#handleSearch"/>
+
+    </HBox>
+</VBox>
