@@ -79,12 +79,12 @@ public class InventoryController {
                 || stockField.getText().isEmpty() || stockField.getText().isBlank())
             showAlert("Warning","All name and stock should be set", Alert.AlertType.NONE);
         else {
-
             String name = productName.getText();
             int stock = Integer.parseInt(stockField.getText());
             if (productId.getText().isEmpty()){
-
                 inventory.add(new Product(name,stock));
+                productTable.refresh();
+                clearEverything();
             }else{
                 int id = Integer.parseInt(productId.getText());
                 Product product = inventory.stream().filter(product1 -> product1.getId()==id).findFirst().orElse(null);
@@ -93,9 +93,11 @@ public class InventoryController {
                 else {
                     product.setName(name);
                     product.setStock(stock);
+                    clearEverything();
+                    productTable.refresh();
                 }
             }
-            initialize();
+            productTable.refresh();
         }
     }
 
@@ -111,6 +113,11 @@ public class InventoryController {
                 .toLowerCase().contains(name)).findFirst().orElse(null);
     }
 
+    private void clearEverything(){
+        stockField.clear();
+        productName.clear();
+        productId.clear();
+    }
     private void populateTable(){
         inventory.add(new Product("apple",200));
         inventory.add(new Product("Banana",250));
